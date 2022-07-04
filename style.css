@@ -1,0 +1,59 @@
+@font-face 
+{
+    font-family: Alice;
+    src: local("Alice"),
+         url(font/ALICE.ttf);
+    font-weight: bold;
+}
+
+body
+{
+    background-image: url(image/fond.jpeg);
+    background-size: cover;
+}
+
+#fond
+{
+    padding: 5px;
+    height: 97vh;
+    background-size: cover ;
+    background-image: url(image/fantasy\ world.jpg);
+    clip-path: polygon(0 0, 100% 0, 100% 17%, 0 17%);
+    border-radius: 15px;
+    transition: 2s;
+}
+
+#fond:hover
+{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#titre
+{
+    font-family: Alice;
+    text-align: center;
+    color: aliceblue;
+    font-size: 50px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue
+}
+
+button, select
+{
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(0, 0, 0), 0 0 0.3em rgb(0, 0, 0);
+    background-color: transparent;
+}
+
+#choixPerso
+{
+    color: Black;
+}
+
+p
+{
+    padding-top: 10px;
+    color: antiquewhite;
+    text-shadow: 1px 2px rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
+    font-size: 25px;
+}
+
