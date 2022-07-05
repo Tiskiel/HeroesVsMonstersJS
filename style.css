@@ -6,9 +6,17 @@
     font-weight: bold;
 }
 
-body
+#vidFond 
 {
-    background-image: url(image/fond.jpeg);
+    position: fixed; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    background: url(video/Elysium.mp4) no-repeat;
     background-size: cover;
 }
 
@@ -42,6 +50,7 @@ button, select
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px rgb(0, 0, 0), 0 0 0.3em rgb(0, 0, 0);
     background-color: transparent;
+    border-radius: 10px;
 }
 
 #choixPerso
@@ -56,4 +65,3 @@ p
     text-shadow: 1px 2px rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
     font-size: 25px;
 }
-
