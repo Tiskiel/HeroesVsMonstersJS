@@ -16,7 +16,7 @@
     width: auto; 
     height: auto; 
     z-index: -100;
-    background: url(video/Elysium.mp4) no-repeat;
+    background-image: url(image/chateau-effrayant-.webp);
     background-size: cover;
 }
 
@@ -31,8 +31,12 @@
     transition: 2s;
 }
 
-#fond:hover
+/* #fond:hover
 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+} */
+
+.fond{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -65,3 +69,33 @@ p
     text-shadow: 1px 2px rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
     font-size: 25px;
 }
+
+#messageBox {
+    width: 900px;
+    height:35px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: -5px 5px 10px;
+    margin: auto;
+    text-align:center;
+    padding:25px;
+  }
+
+  #startBtn {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 45%;
+    right: 45%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 50px;
+    background-size: cover;
+    cursor:pointer;
+    font-size: 20px;
+
+  }
+  
