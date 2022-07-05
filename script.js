@@ -35,7 +35,9 @@ const fond = document.getElementById('fond');
 startbtn.addEventListener('click', () => {
     fond.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
     startbtn.style.display = 'none'
+    titre.style.display = 'none'
 })
+
 
 
 
@@ -49,31 +51,31 @@ let heroAttack;
 
 
 
-let startBtn = document.getElementById("startBtn");
+// let startBtn = document.getElementById("startBtn");
 
-// Ce gestionnaire ne sera exécuté qu'une fois
-// lorsque le curseur se déplace sur la liste
-startBtn.addEventListener("mouseenter", function( event ) {
-  // on met l'accent sur la cible de mouseenter
-  event.target.style.color = "blue";
+// // Ce gestionnaire ne sera exécuté qu'une fois
+// // lorsque le curseur se déplace sur la liste
+// startBtn.addEventListener("mouseenter", function( event ) {
+//   // on met l'accent sur la cible de mouseenter
+//   event.target.style.color = "blue";
 
-  // on réinitialise la couleur après quelques instants
-  setTimeout(function() {
-    event.target.style.color = "";
-  }, 500);
-}, false);
+//   // on réinitialise la couleur après quelques instants
+//   setTimeout(function() {
+//     event.target.style.color = "";
+//   }, 500);
+// }, false);
 
-// Ce gestionnaire sera exécuté à chaque fois que le curseur
-// se déplacera sur un autre élément de la liste
-startBtn.addEventListener("mouseover", function( event ) {
-  // on met l'accent sur la cible de mouseover
-  event.target.style.color = "orange";
+// // Ce gestionnaire sera exécuté à chaque fois que le curseur
+// // se déplacera sur un autre élément de la liste
+// startBtn.addEventListener("mouseover", function( event ) {
+//   // on met l'accent sur la cible de mouseover
+//   event.target.style.color = "orange";
 
-  // on réinitialise la couleur après quelques instants
-  setTimeout(function() {
-    event.target.style.color = "";
-  }, 500);
-}, false);
+//   // on réinitialise la couleur après quelques instants
+//   setTimeout(function() {
+//     event.target.style.color = "";
+//   }, 500);
+// }, false);
 
 
 

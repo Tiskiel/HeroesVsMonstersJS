@@ -21,19 +21,15 @@ class De {
 
 class Personnage  {
     
-    Vie(){
-        let PtsDeVie = Personnage
-        let Force
-        let Endurance
+    constructor(){
+        this.PtsDeVie
+        this.Force
+        this.Endurance
 
-        let de4 = new De(4)
-        let de6 = new De(6)
+        this.de4 = new De(4)
+        this.de6 = new De(6)
 
         
-
-        creationPersonnage() {
-            
-        }
     }
 }
 
