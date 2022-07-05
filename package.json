@@ -1,0 +1,22 @@
+{
+  "name": "heroes-vs-monster",
+  "version": "1.0.0",
+  "description": "HvM",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiskiel/HeroesVsMonstersJS.git"
+  },
+  "author": "max val jf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiskiel/HeroesVsMonstersJS/issues"
+  },
+  "homepage": "https://github.com/Tiskiel/HeroesVsMonstersJS#readme",
+  "dependencies": {
+    "phaser": "^3.55.2"
+  }
+}
