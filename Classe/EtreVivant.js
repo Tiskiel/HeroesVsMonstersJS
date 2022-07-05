@@ -1,29 +1,29 @@
 class Personnage  {
     
-    JetDeDe() {
+    // JetDeDe() {
         
-        let sommesD;
-        let listDeD = []; 
-        listDeD.length = 4;
+    //     let sommesD;
+    //     let listDeD = []; 
+    //     listDeD.length = 4;
         
-        for (let i = 0; i < listDeD.length; i++) 
-        {
+    //     for (let i = 0; i < listDeD.length; i++) 
+    //     {
             
-            listDeD[i] = Math.random(0, 6);
+    //         listDeD[i] = Math.random(0, 6);
 
         
-        }
+    //     }
         
-        let min = Math.min(...listDeD);
-        let listFinal = listDeD.filter(d => d != min);
+    //     let min = Math.min(...listDeD);
+    //     let listFinal = listDeD.filter(d => d != min);
 
-        for (const d of listDeD) {
+    //     for (const d of listDeD) {
             
-            sommesD += d;
+    //         sommesD += d;
 
-        }
+    //     }
 
-        return sommesD;
-    }
+    //     return sommesD;
+    // }
 }
 
