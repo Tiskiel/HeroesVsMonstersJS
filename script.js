@@ -33,7 +33,8 @@ const startbtn = document.getElementById('startBtn');
 const fond = document.getElementById('fond');
 
 startbtn.addEventListener('click', () => {
-    fond.classList.remove('fond')
+    fond.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+    startbtn.style.display = 'none'
 })
 
 
@@ -54,7 +55,7 @@ let startBtn = document.getElementById("startBtn");
 // lorsque le curseur se déplace sur la liste
 startBtn.addEventListener("mouseenter", function( event ) {
   // on met l'accent sur la cible de mouseenter
-  event.target.style.color = "purple";
+  event.target.style.color = "blue";
 
   // on réinitialise la couleur après quelques instants
   setTimeout(function() {
@@ -73,4 +74,12 @@ startBtn.addEventListener("mouseover", function( event ) {
     event.target.style.color = "";
   }, 500);
 }, false);
+
+
+
+
+
+
+
+
 

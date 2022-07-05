@@ -1,0 +1,4 @@
+class  Orcq extends Monster 
+{
+    
+}
