@@ -1,4 +1,0 @@
-class Wolf extends Monster
-{
-    
-}

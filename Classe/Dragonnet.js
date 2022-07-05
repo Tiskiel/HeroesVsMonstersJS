@@ -1,4 +1,0 @@
-class Dragonnet extends Monster 
-{
-    
-}
