@@ -2,7 +2,7 @@
 {
     font-family: Alice;
     src: local("Alice"),
-         url(font/ALICE.ttf);
+    url(font/ALICE.ttf);
     font-weight: bold;
 }
 
@@ -77,26 +77,24 @@ p
     margin: auto;
     text-align:center;
     padding:25px;
-  }
+}
 
-  #startBtn {
-      border: none;
-    position: absolute;
-    top: 50%;
-    bottom: 100%;
-    left: 45%;
-    right: 45%;
-    margin-top: auto;
+#startBtn {
+    /* margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
     /* width: 150px;
     height: 100px; */
-    background-size: cover;
+    border: none;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    
     cursor:pointer;
-    font-size: 50px;
+    font-size: 100px;
     font-family: Alice;
     src: local("Alice"),
-         url(font/ALICE.ttf);
+    url(font/ALICE.ttf);
     font-weight: bold;
-  }
+}
