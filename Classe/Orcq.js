@@ -1,3 +1,4 @@
-class  Orcq extends Monster {
+class  Orcq extends Monster 
+{
     
 }

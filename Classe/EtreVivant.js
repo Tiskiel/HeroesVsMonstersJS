@@ -1,6 +1,8 @@
-class Personnage  {
+class Personnage  
+{
     
-    JetDeDe() {
+    JetDeDe() 
+    {
         
         let sommesD;
         let listDeD = []; 
