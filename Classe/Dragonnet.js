@@ -1,0 +1,3 @@
+class Dragonnet extends Monster {
+    
+}
