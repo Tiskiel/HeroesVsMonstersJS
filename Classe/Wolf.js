@@ -1,3 +1,4 @@
-class Wolf extends Monster{
+class Wolf extends Monster
+{
     
 }

@@ -1,4 +1,5 @@
-class Personnage  {
+class Personnage  
+{
     
     // JetDeDe() {
         

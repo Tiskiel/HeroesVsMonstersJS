@@ -1,3 +1,4 @@
-class Monster extends EtreVivant {
+class Monster extends EtreVivant 
+{
 
 }

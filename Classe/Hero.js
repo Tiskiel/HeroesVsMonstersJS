@@ -1,9 +1,10 @@
-class Hero extends EtreVivant {
+class Hero extends EtreVivant 
+{
     
     //Constructeur
-    constructor(name){
+    constructor(name)
+    {
         this.name = name;
-
     }
 
     // greet() {

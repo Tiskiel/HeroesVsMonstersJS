@@ -1,6 +1,8 @@
-class Nain extends Hero {
+class Nain extends Hero 
+{
 
-    constructor(name){
+    constructor(name)
+    {
         super(name)
     }
     
