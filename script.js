@@ -39,14 +39,16 @@ startbtn.addEventListener('click', () => {
 })
 
 
+let babar = new Humain();
+
+console.log(babar.mort);
 
 
 
-
-let heroTurn = false;
-let monsterTurn = false;
-let monsterAttack;
-let heroAttack;
+// let heroTurn = false;
+// let monsterTurn = false;
+// let monsterAttack;
+// let heroAttack;
 
 
 

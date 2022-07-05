@@ -13,17 +13,17 @@ class De {
 
         }else if(max == 4) {
 
-            const damageD = Math.floor(Math.random()* (this.max - this.min + 1) + this.min);
+            const damageD = Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             return damageD;
 
         }
     }
 
-    caracGenerator() {
+    caracGenerator(max) {
         des = [];
         let maximum = 4;
         for (let index = 0; index < maximum; index++) {
-            des[index] = Math.floor(Math.random()* (this.max - this.min + 1) + this.min);
+            des[index] = Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             des.sort((a, b) => b - a);
             return  des[0] + des[1] + des[2];     
     }
@@ -34,16 +34,22 @@ class De {
 
 
 class Personnage  {
+
+    de6 = new De(6)
     
+    mort(){
+        if(this.ptsDeVie <= 0) {
+            console.log('');
+        }
+    }
+
     constructor(){
-        this.ptsDeVie
-        this.force
-        this.endurance
 
-        this.de4 = new De(4)
-        this.de6 = new De(6)
-
+        this.force = this.de6.lancer(4);
+        this.endurance = this.de6.lancer(4);
+        this.ptsDeVie = this.endurance > 5 ? this.endurance + 0 : this.endurance > 10 ? this.endurance + 1 : this.endurance > 15 ? this.endurance + 2 : this.endurance - 1;
         
+        this.mort = mort();
     }
 }
 
@@ -55,20 +61,22 @@ class Personnage  {
 class Hero extends Personnage {
     
     //Constructeur
-    constructor(name, ptsVie, force, endurance){
-        this.name = name
-        super(ptsVie);
-        super(force);
-        super(endurance)
-    }  
+    constructor() {
+
+        super();
+
+    }
 }
 
 
 
 class Humain extends Hero{
 
-    constructor(name){
-        super(name)
+    constructor() {
+        this.endurance = super(endurance) + 1;
+        this.mort
+        this.name = 'Humain';
+        super();
 
     }
 }
@@ -76,10 +84,13 @@ class Humain extends Hero{
 
 class Nain extends Hero {
 
-    constructor(name){
-        super(name)
-    }
     
+    constructor() {
+
+        this.name = 'Nain'
+        super();
+        
+    }
 }
 
 
