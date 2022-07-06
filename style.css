@@ -55,11 +55,20 @@ button, select
     border-radius: 10px;
 }
 
-#choixPerso
+h1, h2
 {
-    color: Black;
+    align-content: center;
+    color: white;
 }
 
+/* #choixPerso
+{
+    color: rgb(255, 255, 255); */
+}
+#nain
+{
+    top: 50%;
+}
 p
 {
     padding-top: 10px;
@@ -98,3 +107,4 @@ p
     url(font/ALICE.ttf);
     font-weight: bold;
 }
+
