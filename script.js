@@ -39,9 +39,14 @@ startbtn.addEventListener('click', () => {
 })
 
 
-let babar = new Humain();
+let prs = new Humain();
+let prs1 = new Humain();
+let n = new Nain();
 
-console.log(babar.mort);
+console.log(prs);
+console.log(prs1);
+console.log(n);
+
 
 
 
