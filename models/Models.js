@@ -30,18 +30,22 @@ class De {
 class Personnage {
 
     #de6
+    #de4
     #force
     #endurance
     #ptsDeVie
+    #dgts
+
 
     constructor() {
         this.#de6 = new De(6)
-
+        this.#de4 = new De(4)
         this.#force = this.#de6.caracGenerator();
         this.#endurance = this.#de6.caracGenerator();
         this.#ptsDeVie = this.#endurance + this.getModificateur(this.#endurance)
+        this.#dgts = this.#de4.lancer() + this.getModificateur(this.#force)
         console.log('Personnage créé');
-        
+
     }
     get force() {
         return this.#force;
@@ -52,6 +56,12 @@ class Personnage {
     get ptsDeVie() {
         return this.#ptsDeVie;
     }
+    get de4() {
+        return this.#de4;
+    }
+    get de6() {
+        return this.#de6
+    }
 
 
     get estVivant() {
@@ -60,7 +70,16 @@ class Personnage {
 
     getModificateur(stat) {
 
-        return stat > 15 ? 2 : stat > 10 ? 1 : stat > 5 ? 0 :  -1;
+        return stat > 15 ? 2 : stat > 10 ? 1 : stat > 5 ? 0 : -1;
+    }
+
+    frappe(enemi) {
+
+        if (this != enemi && enemi != null) {
+
+            enemi.#ptsDeVie -= enemi.#dgts;
+
+        }
     }
 }
 
@@ -71,11 +90,26 @@ class Personnage {
 
 class Hero extends Personnage {
 
+    #cuir;
+    #or;
     //Constructeur
     constructor() {
 
         super()
+        this.#cuir = 0;
+        this.#or = 0;
+    }
 
+    loot(enemi) {
+        console.log(`Loot de l'ennemi`);
+        if (enemi == null) return;
+        if ('or' in enemi) {
+            console.log(`L'enemi contient de l'or`);
+
+        }
+        if ('cuir' in enemi) {
+            console.log(`L'enemi contient du cuir`);
+        }
     }
 }
 
@@ -95,7 +129,7 @@ class Humain extends Hero {
     get force() {
         return this.force + 1
     }
-    
+
 }
 
 
@@ -121,9 +155,11 @@ class Nain extends Hero {
 
 
 class Monster extends Personnage {
+
     constructor() {
 
         super()
+
 
     }
 
@@ -133,6 +169,25 @@ class Monster extends Personnage {
 
 class Dragonnet extends Monster {
 
+    #or
+    #cuir
+    constructor() {
+
+        super();
+        this.name = 'Dragonnet';
+        this.#or = this.de6.lancer();
+        this.#cuir = this.de4.lancer();
+    }
+
+    get endurance() {
+        return this.endurance + 1;
+    }
+    get or() {
+        return this.#or
+    }
+    get cuir() {
+        return this.#cuir
+    }
 }
 
 
@@ -140,6 +195,21 @@ class Dragonnet extends Monster {
 
 
 class Orcq extends Monster {
+    #or
+    constructor() {
+
+        super();
+        this.name = 'Orcq';
+        this.#or = this.de6.lancer();
+
+    }
+
+    get force() {
+        return this.force + 1;
+    }
+    get or() {
+        return this.#or;
+    }
 
 }
 
@@ -147,4 +217,15 @@ class Orcq extends Monster {
 
 class Wolf extends Monster {
 
+    #cuir
+    constructor() {
+
+        super();
+        this.name = 'Loup';
+        this.#cuir = this.de4.lancer();
+
+    }
+    get cuir() {
+        return this.#cuir;
+    }
 }
