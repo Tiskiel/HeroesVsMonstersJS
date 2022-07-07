@@ -18,7 +18,24 @@ returnbtn.addEventListener('click', () =>
     startbtn.style.display = 'block'
 })
 
+// btn choixHumain
+const choixhumain = document.getElementById('choixHumain')
 
+choixhumain.addEventListener('click', () =>
+{
+
+})
+
+// btn choixNain
+const choixnain = document.getElementById('choixNain')
+
+choixnain.addEventListener('click', () =>
+{
+
+})
+
+
+// fonction
 function GameNain(){
 
     let Nain = new Nain();
