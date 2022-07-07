@@ -2,11 +2,13 @@
 <html lang="fr">
 
     <head>
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>🧙‍♂️ Heroes 🆚 Monster 🧟‍♂️</title>
         <link rel="stylesheet" href="style.css">
+
     </head>
 
     <body>
@@ -15,68 +17,51 @@
 
             <div>
                 <div id="vidFond"></div>
-                <h1 id="titre">HEROES VS MONSTER</h1>
-                <button id="startBtn">Start</button> 
-            </div>
 
-        </section>
-        
-        <section id="entete">
+                <!-- <h1 align="center" id="titre1">HEROES VS MONSTER</h1> -->
+
+                <button id="startBtn"><img src="image/bouton start.png" height="100" width="100"></button> 
+
+            </div>
 
         </section>
 
         <section id="fond">
             
-            
-
-            <div id="choiceHero" >
-
-                <h1>Bienvenue dans Heroes vs Monster, veuillez choisir votre personnage</h1>
-                <h2>Choississez votre hero !</h2>
-
-                <img src="image/humain.png" alt="humain" id="humain">
+            <div id="btn" align="center">
                 
-                <img src="image/nain.png" alt="nain" id="nain">
+                <h1 id="titre">HEROES VS MONSTER</h1>
 
-                <!-- <select name="" id="hero">
+                <p>Bienvenue dans Heroes vs Monster, veuillez choisir votre personnage</p>
 
-                    <option id="choixPerso" hidden>Choix du hero &#8239</option>
+                <div>
 
-                    <option id="choixPerso" value="">Humain</option>
+                    <button align="center" id="returnBtn">Retour</button>
 
-                    <option id="choixPerso" value="">Nain</option>
-
-                </select> -->
-
-                <!-- <button>Valider</button> -->
+                </div>
 
             </div>
 
-            <!--test image-->
+            <div align="center" id="btnAction">
 
-            <div>
+                <button>Attaque</button>
 
-                <!-- <img src="image/dragon.png" alt="">
+                <button>Bloquage</button>
 
-                <img src="image/loup.jpeg" alt="">
+                <button>Potion</button>
 
-                <img src="image/loup-fixe.png" alt=""> -->
-
-                
-
-                <!-- <img src="image/orc.png" alt="">
-
-                <img src="image/herbe.png" alt="">
-
-                <img src="image/terre.png" alt="">
-                
-                <img src="image/pierre.png" alt=""> -->
-
+                <!-- <button class="doom">Doom</button> -->
+    
+            </div>
+    
+            <div id="rep" align="center">
+    
+                <div class="resultat"></div>
+    
             </div>
 
         </section>
 
-        
         <script src="models/Models.js"></script>
         <script src="script.js"></script>
 

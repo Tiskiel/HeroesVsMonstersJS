@@ -2,10 +2,21 @@
 {
     font-family: Alice;
     src: local("Alice"),
-    url(font/ALICE.ttf);
+         url(font/ALICE.ttf);
+
+    /* src: local("Mevno2"),
+    url(font/mevno2.ttf);
+ */
+
     font-weight: bold;
 }
 
+@font-face
+{
+    font-family: Rock;
+    src: local("Rock"),
+    url(font/Rock.ttf);
+}
 
 #vidFond 
 {
@@ -15,13 +26,11 @@
     min-width: 100%; 
     min-height: 100%;
     width: auto; 
-    height: auto; 
+    height: 100vh; 
     z-index: -100;
-    background-image: url(image/chateau-effrayant-.webp);
-    background-size: cover;
-        
+    background-image: url(image/fond.png);
+    background-size: cover;  
 }
-
 
 #fond
 {
@@ -32,24 +41,31 @@
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
     border-radius: 15px;
     transition: 2s;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
-.fond{
+.fond
+{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
 
 #titre
 {
     font-family: Alice;
     text-align: center;
     color: aliceblue;
-    font-size: 50px;
+    font-size: 60px;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue
 }
 
+#titre1
+{
+    font-family: Rock;
+    font-size: 40px;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(14, 111, 53), 0 0 0.2em rgb(0, 0, 0)
+}
 
 button, select
 {
@@ -59,25 +75,10 @@ button, select
     border-radius: 10px;
 }
 
-
-h1, h2
+#choixPerso
 {
-    align-content: center;
-    color: white;
+    color: Black;
 }
-
-
-/* #choixPerso
-{
-    color: rgb(255, 255, 255);
-} */
-
-
-#nain
-{
-    top: 50%;
-}
-
 
 p
 {
@@ -87,36 +88,67 @@ p
     font-size: 25px;
 }
 
-
-#messageBox {
+#messageBox 
+{
     width: 900px;
-    height:35px;
+    height: 35px;
     background-color: white;
     border: 1px solid black;
     box-shadow: -5px 5px 10px;
     margin: auto;
-    text-align:center;
-    padding:25px;
+    text-align: center;
+    padding: 25px;
 }
 
-
-#startBtn {
-    /* margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto; */
-    /* width: 150px;
-    height: 100px; */
+#startBtn
+{
     border: none;
     position: absolute;
-    top: 40%;
-    left: 45%;
-    
-    cursor:pointer;
-    font-size: 100px;
-    font-family: Alice;
-    src: local("Alice"),
-    url(font/ALICE.ttf);
-    font-weight: bold;
+    top: 44%;
+    bottom: 43.5%;
+    left: 44%;
+    right: 44%;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
+#returnBtn 
+{
+    border: none;
+    position: absolute;
+    left: 43%;
+    right: 43%;
+    bottom: 5%;
+    top: 90%;
+    cursor: pointer;
+    font-family: Alice;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue
+}
+
+#btnAction
+{
+    position: absolute;
+   top: 45%;
+   left: 35%;
+   right: 35%;
+}
+
+#rep
+{
+    position: absolute ;
+    top: 50%;
+    left: 35%;
+    right: 35%;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0)
+}
+
+.doom
+{
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
