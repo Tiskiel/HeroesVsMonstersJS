@@ -6,6 +6,7 @@
     font-weight: bold;
 }
 
+
 #vidFond 
 {
     position: fixed; 
@@ -20,6 +21,7 @@
     background-size: cover;
         
 }
+
 
 #fond
 {
@@ -38,6 +40,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
+
 #titre
 {
     font-family: Alice;
@@ -47,6 +50,7 @@
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue
 }
 
+
 button, select
 {
     color: rgb(255, 255, 255);
@@ -55,20 +59,26 @@ button, select
     border-radius: 10px;
 }
 
+
 h1, h2
 {
     align-content: center;
     color: white;
 }
 
+
 /* #choixPerso
 {
-    color: rgb(255, 255, 255); */
-}
+    color: rgb(255, 255, 255);
+} */
+
+
 #nain
 {
     top: 50%;
 }
+
+
 p
 {
     padding-top: 10px;
@@ -76,6 +86,7 @@ p
     text-shadow: 1px 2px rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
     font-size: 25px;
 }
+
 
 #messageBox {
     width: 900px;
@@ -87,6 +98,7 @@ p
     text-align:center;
     padding:25px;
 }
+
 
 #startBtn {
     /* margin-top: auto;
