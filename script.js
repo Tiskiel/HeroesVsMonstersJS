@@ -7,6 +7,7 @@ const imgNain = document.getElementById('nain');
 const imgHumain = document.getElementById('humain');
 const gameDiv = document.getElementById('gameDiv');
 let img = document.createElement("img");
+const divBtn = document.getElementById('btn');
 
 startbtn.addEventListener('click', () => 
 {
@@ -36,6 +37,7 @@ btnHuman.addEventListener('click', () =>
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     img.src = "image/humain.png" ;
+    divBtn.classList.toggle('.align')
     gameDiv.appendChild(img);
     // btnHuman.style.cursor = 'default';
     // btnHuman.click = 'none';
