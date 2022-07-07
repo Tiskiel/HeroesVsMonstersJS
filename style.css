@@ -2,13 +2,7 @@
 {
     font-family: Alice;
     src: local("Alice"),
-         url(font/ALICE.ttf);
-
-    /* src: local("Mevno2"),
-    url(font/mevno2.ttf);
- */
-
-    font-weight: bold;
+    url(font/ALICE.ttf);
 }
 
 @font-face

@@ -86,7 +86,7 @@ for (let i = 0 ; i < buttons.length; i++)
             resultat = "Bloquage des deux côté";
         }
 
-        else if (joueur == "Bloquage" && adversaire == "")
+        else if (joueur == "Bloquage" && adversaire == "Potion")
         {
             resultat = "Bloquage à échoué & l'ennemi prend une potion";
         }
