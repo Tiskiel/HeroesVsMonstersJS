@@ -77,7 +77,7 @@ class Personnage {
 
         if (this != enemi && enemi != null) {
 
-            enemi.#ptsDeVie -= enemi.#dgts;
+            enemi.#ptsDeVie -= this.#dgts;
 
         }
     }

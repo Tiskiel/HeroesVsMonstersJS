@@ -159,3 +159,29 @@ p
     border: none;
     outline: none;
 }
+
+#humain
+{
+    width: 150px;
+    height: 200px;
+
+}
+#nain
+{
+    width: 180px;
+    height: 150px;
+}
+.gameHuman
+{
+    
+    src:  url("image/humain.png");
+    width: 250px;
+    height: 300px;
+    margin-left: 15%;
+    cursor: crosshair;
+    top: 50%;
+}
+.align
+{
+    text-align: center;
+}

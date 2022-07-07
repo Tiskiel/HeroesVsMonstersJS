@@ -1,11 +1,17 @@
 // StartBtn
 const startbtn = document.getElementById('startBtn');
 const fond = document.getElementById('fond');
+const btnHuman = document.getElementById('choixHumain');
+const btnNain = document.getElementById('choixNain');
+const imgNain = document.getElementById('nain');
+const imgHumain = document.getElementById('humain');
+const gameDiv = document.getElementById('gameDiv');
+let img = document.createElement("img");
 
 startbtn.addEventListener('click', () => 
 {
-    fond.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
-    startbtn.style.display = 'none'
+    fond.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    startbtn.style.display = 'none';
 })
 
 
@@ -14,22 +20,33 @@ const returnbtn = document.getElementById('returnBtn');
 
 returnbtn.addEventListener('click', () => 
 {
-    fond.style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0 0%)"
-    startbtn.style.display = 'block'
+    fond.style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0 0%)";
+    startbtn.style.display = 'block';
+    // btnHuman.style.display ='block';
+    // btnNain.style.display = 'block';
+    
 })
 
 // btn choixHumain
-const choixhumain = document.getElementById('choixHumain')
 
-choixhumain.addEventListener('click', () =>
+
+btnHuman.addEventListener('click', () =>
 {
+
+    btnHuman.style.display = 'none';
+    btnNain.style.display = 'none';
+    img.src = "image/humain.png" ;
+    gameDiv.appendChild(img);
+    // btnHuman.style.cursor = 'default';
+    // btnHuman.click = 'none';
+    gameDiv.classList.add('.gameHuman');
 
 })
 
 // btn choixNain
-const choixnain = document.getElementById('choixNain')
 
-choixnain.addEventListener('click', () =>
+
+btnNain.addEventListener('click', () =>
 {
 
 })
@@ -43,25 +60,25 @@ function GameNain(){
     
     }
     
-    let prs = new Humain();
-    let prs1 = new Humain();
-    let n = new Nain();
-    let w = new Wolf();
-    let o = new Orcq();
-    let d = new Dragonnet();
-    
-    
-    prs.loot(w);
-    
-    console.log(w);
-    prs.frappe(w)
-    console.log(w);
-    
-    console.log(d);
-    console.log(o);
-    console.log(prs);
-    console.log(prs1);
-    console.log(n);
+let prs = new Humain();
+let prs1 = new Humain();
+let n = new Nain();
+let w = new Wolf();
+let o = new Orcq();
+let d = new Dragonnet();
+
+
+prs.loot(w);
+
+console.log(w);
+prs.frappe(w)
+console.log(w);
+
+console.log(d);
+console.log(o);
+console.log(prs);
+console.log(prs1);
+console.log(n);
 
 
 const buttons = document.querySelectorAll("#btnAction>*");
