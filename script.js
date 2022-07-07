@@ -6,8 +6,12 @@ const btnNain = document.getElementById('choixNain');
 const imgNain = document.getElementById('nain');
 const imgHumain = document.getElementById('humain');
 const gameDiv = document.getElementById('gameDiv');
-let img = document.createElement("img");
 const divBtn = document.getElementById('btn');
+const imgMap = document.getElementById('divMap');
+const pWelcome = document.getElementById('pWelcome')
+const grosConnard = document.getElementById('enculer');
+let img = document.createElement("img");
+
 
 startbtn.addEventListener('click', () => 
 {
@@ -31,17 +35,20 @@ returnbtn.addEventListener('click', () =>
 // btn choixHumain
 
 
+
 btnHuman.addEventListener('click', () =>
 {
 
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
-    img.src = "image/humain.png" ;
-    divBtn.classList.toggle('.align')
-    gameDiv.appendChild(img);
-    // btnHuman.style.cursor = 'default';
-    // btnHuman.click = 'none';
-    gameDiv.classList.add('.gameHuman');
+    pWelcome.style.display = 'none';
+    
+    imgMap.classList.add('map');
+    // img.src = "image/humain.png";
+    // imgMap.appendChild('img');
+    // divBtn.classList.toggle('.align')
+    // gameDiv.appendChild(img);
+    //gameDiv.classList.add('.gameHuman');
 
 })
 

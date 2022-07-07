@@ -167,11 +167,11 @@ p
 {
     
     src:  url("image/humain.png");
-    width: 250px;
-    height: 300px;
+    width: 20%;
+    /* height: 300px; */
     margin-left: 15%;
     cursor: crosshair;
-    top: 50%;
+    /* top: 50%; */
 }
 .align
 {
@@ -185,8 +185,17 @@ p
     border-radius: 4%;
     width: 800px;
     height: 500px;
-    top: 30%;
-    bottom: 30%;
-    left: 30%;
-    right: 30%;
+    margin-top: 6%;
+    margin-left: 30%;
+    margin-right: 30%;
+    
+}
+
+.choicePlayer
+{
+    
+    width: 150px;
+    margin-top: 25%;
+    margin-right: 50%;
+    
 }
