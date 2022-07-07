@@ -160,7 +160,7 @@ p
 }
 #nain
 {
-    width: 180px;
+    width: 100px;
     height: 150px;
 }
 .gameHuman
@@ -176,4 +176,17 @@ p
 .align
 {
     text-align: center;
+}
+
+.map
+{
+    background-image: url(image/fond\ foret.png);
+    background-size: cover;
+    border-radius: 4%;
+    width: 800px;
+    height: 500px;
+    top: 30%;
+    bottom: 30%;
+    left: 30%;
+    right: 30%;
 }
