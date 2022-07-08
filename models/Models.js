@@ -104,10 +104,12 @@ class Hero extends Personnage {
         console.log(`Loot de l'ennemi`);
         if (enemi == null) return;
         if ('or' in enemi) {
+            this.#cuir += enemi.cuir;
             console.log(`L'enemi contient de l'or`);
 
         }
         if ('cuir' in enemi) {
+            this.#or += enemi.or;
             console.log(`L'enemi contient du cuir`);
         }
     }
