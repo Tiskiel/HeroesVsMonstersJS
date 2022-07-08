@@ -11,7 +11,12 @@ const imgMap = document.getElementById('divMap');
 const pWelcome = document.getElementById('pWelcome')
 const humainDiv = document.getElementById('humainDiv');
 const nainDiv = document.getElementById('nainDiv');
-const dragonDiv = document.getElementById('dragonDiv')
+const dragonDiv = document.getElementById('dragonDiv');
+const wolfDiv = document.getElementById('wolfDiv');
+const orcDiv = document.getElementById('orcDiv');
+const pNotif = document.getElementById('pNotif');
+const notifLoot = document.getElementById('notifLoot')
+let imgList = [orcDiv, dragonDiv, wolfDiv];
 let img = document.createElement("img");
 
 
@@ -22,6 +27,8 @@ startbtn.addEventListener('click', () =>
     humainDiv.style.display = 'none';
     nainDiv.style.display = 'none';
     dragonDiv.style.display = 'none';
+    wolfDiv.style.display = 'none';
+    orcDiv.style.display = 'none';
 })
 
 
@@ -36,22 +43,115 @@ returnbtn.addEventListener('click', () =>
     // btnNain.style.display = 'block';
 })
 
+let rdm = Math.floor((Math.random()*3));
+
+let rdmImg = imgList[rdm].style.display = 'block';
 
 // btn choixHumain
 btnHuman.addEventListener('click', () =>
 {
-
+    
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     pWelcome.style.display = 'none';
     imgMap.classList.add('map');
     humainDiv.style.display = 'block';
-    dragonDiv.style.display = 'block';
-    // img.src = "image/humain.png";
-    // imgMap.appendChild('img');
-    // divBtn.classList.toggle('.align')
-    // gameDiv.appendChild(img);
-    //gameDiv.classList.add('.gameHuman');
+    //dragonDiv.style.display = 'block';
+    //wolfDiv.style.display = 'block';
+    //orcDiv.style.display = 'block';
+    
+    let Patrick = new Humain();
+    let o = new Orcq();
+    let d = new Dragonnet();
+    let w = new Wolf();
+
+    let rdm = Math.floor((Math.random()*3));
+
+    let rdmImg = imgList[rdm].style.display = 'block';
+    
+    rdmImg
+
+    let compt = 0;
+    let restorePv = Patrick.ptsDeVie;
+    
+    while (Patrick.ptsVie != 0 && compt != 8) {
+
+        
+        let mod = 0;
+        compt++
+        mod = compt % 2
+        
+        console.log(Patrick.ptsDeVie);
+        console.log(o.ptsDeVie);
+        console.log(`Tour ${compt}`);
+        if(imgList[rdm] == orcDiv && (mod == 0))
+        {
+            
+            Patrick.frappe(o);
+            console.log(Patrick.ptsDeVie);
+            pNotif.innerText = `Patrick frappe l'orc avec ${Patrick.dgts} force, Point de vie de l'orc est de ${o.ptsDeVie} `
+
+            if (o.ptsDeVie <= 0) {
+                Patrick.loot(o);
+                Patrick.ptsDeVie = restorePv;
+                pNotif.innerText = `L'orc est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == orcDiv && (mod != 0))
+        {
+            o.frappe(Patrick)
+            console.log(o.ptsDeVie);
+
+            if(Patrick.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Patrick est mort. Try again !`
+                break
+            }
+        }else if(imgList[rdm] == wolfDiv && (mod == 0))
+        {
+            
+            Patrick.frappe(w);
+            pNotif.innerText = `Patrick frappe le loup avec ${Patrick.dgts} force, Point de vie du loup est de ${w.ptsDeVie} `
+            if (w.ptsDeVie <= 0) {
+                Patrick.loot(w)
+                Patrick.ptsDeVie = restorePv;
+                pNotif.innerText = `Le loup est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == wolfDiv && (mod != 0))
+        {
+            w.frappe(Patrick)
+
+            if(Patrick.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Patrick est mort. Try again !`
+                break
+            }
+        }else if(imgList[rdm] == dragonDiv && (mod == 0))
+        {
+            
+            Patrick.frappe(d);
+            pNotif.innerText = `Patrick frappe le dragonnet sous stéroïdes avec ${Patrick.dgts} force, Point de vie du dragonnet est de ${d.ptsDeVie} `
+            if (d.ptsDeVie <= 0) {
+                Patrick.loot(d)
+                Patrick.ptsDeVie = restorePv;
+                pNotif.innerText = `Le dragonnet est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == dragonDiv && (mod != 0))
+        {
+            d.frappe(Patrick)
+
+            if(Patrick.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Patrick est mort. Try again !`
+                break
+            }
+        }
+        
+    }
+    pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`
+    notifLoot.innerText = `Vous possedez ${Patrick.or} d'or et ${Patrick.cuir} de cuir` 
+    
+    console.log(rdm);
+    
 })
 
 
@@ -59,11 +159,102 @@ btnHuman.addEventListener('click', () =>
 btnNain.addEventListener('click', () =>
 {
     btnNain.style.display = 'none';
-    btnNain.style.display = 'none';
+    btnHuman.style.display = 'none';
     pWelcome.style.display = 'none';
     imgMap.classList.add('map');
     nainDiv.style.display = 'block';
-    dragonDiv.style.display = 'block';
+    //dragonDiv.style.display = 'block';
+    //wolfDiv.style.display = 'block';
+    //orcDiv.style.display = 'block';
+
+    let Bob = new Nain();
+    let o = new Orcq();
+    let d = new Dragonnet();
+    let w = new Wolf();
+
+    let rdm = Math.floor((Math.random()*3));
+
+    let rdmImg = imgList[rdm].style.display = 'block';
+
+    rdmImg
+
+    let compt = 0;
+    let restorePv = Bob.ptsDeVie;
+
+    while (Bob.ptsVie != 0 && compt != 8) {
+
+        
+        let mod = 0;
+        compt++
+        mod = compt % 2
+        
+        console.log(Bob.ptsDeVie);
+        console.log(o.ptsDeVie);
+        console.log(`Tour ${compt}`);
+        if(imgList[rdm] == orcDiv && (mod == 0))
+        {
+            
+            Bob.frappe(o);
+            console.log(Bob.ptsDeVie);
+            pNotif.innerText = `Bob frappe l'orc avec ${Bob.dgts} force, Point de vie de l'orc est de ${o.ptsDeVie} `
+
+            if (o.ptsDeVie <= 0) {
+                Bob.loot(o);
+                Bob.ptsDeVie = restorePv;
+                pNotif.innerText = `L'orc est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == orcDiv && (mod != 0))
+        {
+            o.frappe(Bob)
+            console.log(o.ptsDeVie);
+
+            if(Bob.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Bob est mort. Try again !`
+                break
+            }
+        }else if(imgList[rdm] == wolfDiv && (mod == 0))
+        {
+            
+            Bob.frappe(w);
+            pNotif.innerText = `Bob frappe le loup avec ${Bob.dgts} force, Point de vie du loup est de ${w.ptsDeVie} `
+            if (w.ptsDeVie <= 0) {
+                Bob.loot(w)
+                Bob.ptsDeVie = restorePv;
+                pNotif.innerText = `Le loup est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == wolfDiv && (mod != 0))
+        {
+            w.frappe(Bob)
+
+            if(Bob.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Bob est mort. Try again !`
+                break
+            }
+        }else if(imgList[rdm] == dragonDiv && (mod == 0))
+        {
+            
+            Bob.frappe(d);
+            pNotif.innerText = `Bob frappe le dragonnet sous stéroïdes avec ${Bob.dgts} force, Point de vie du dragonnet est de ${d.ptsDeVie} `
+            if (d.ptsDeVie <= 0) {
+                Bob.loot(d)
+                Bob.ptsDeVie = restorePv;
+                pNotif.innerText = `Le dragonnet est mort. Bien joué jeune guerrier !`;
+            }
+        }else if(imgList[rdm] == dragonDiv && (mod != 0))
+        {
+            d.frappe(Bob)
+
+            if(Bob.ptsDeVie <= 0)
+            {
+                pNotif.innerText = `Bob est mort. Try again !`
+                break
+            }
+        }
+        
+    }
+    
 })
 
 

@@ -60,7 +60,10 @@ class Personnage {
         return this.#de4;
     }
     get de6() {
-        return this.#de6
+        return this.#de6;
+    }
+    get dgts() {
+        return this.#dgts;
     }
 
 
@@ -100,17 +103,24 @@ class Hero extends Personnage {
         this.#or = 0;
     }
 
+    get or() {
+        return this.#or;
+    }
+
+    get cuir() {
+        return this.#cuir;
+    }
+
     loot(enemi) {
         console.log(`Loot de l'ennemi`);
         if (enemi == null) return;
         if ('or' in enemi) {
-            this.#cuir += enemi.cuir;
             console.log(`L'enemi contient de l'or`);
-
+        
         }
         if ('cuir' in enemi) {
-            this.#or += enemi.or;
             console.log(`L'enemi contient du cuir`);
+        
         }
     }
 }

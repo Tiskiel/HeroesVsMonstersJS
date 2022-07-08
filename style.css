@@ -208,10 +208,32 @@ p
 
 }
 
-/* #dragonDiv
+#dragonDiv
 {
-    padding-left: 55%;
-} */
+    padding-left: 20%;
+    padding-top: 14%;
+    
+    
+}
+
+#wolfDiv
+{
+    padding-left: 30%;
+    padding-top: 26%;
+}
+
+#orcDiv
+{
+    padding-left: 20%;
+    padding-top: 11%;
+}
+
+#divMap
+{
+    display: flex;
+}
+
+
 
 
 /* .choicePlayer
