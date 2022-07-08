@@ -74,21 +74,21 @@ btnHuman.addEventListener('click', () =>
     let compt = 0;
     let restorePv = Patrick.ptsDeVie;
     
-    while (Patrick.ptsVie != 0 && compt != 8) {
+    while (Patrick.ptsVie != 0 && compt != 10) {
 
         
         let mod = 0;
         compt++
         mod = compt % 2
         
-        console.log(Patrick.ptsDeVie);
-        console.log(o.ptsDeVie);
+        console.log(`Point de vie de patrick : ${Patrick.ptsDeVie}`);
+        console.log(`ptsvie orc ${o.ptsDeVie}`);
         console.log(`Tour ${compt}`);
         if(imgList[rdm] == orcDiv && (mod == 0))
         {
             
             Patrick.frappe(o);
-            console.log(Patrick.ptsDeVie);
+            console.log(`Point de vie de patrick : ${Patrick.ptsDeVie}`);
             pNotif.innerText = `Patrick frappe l'orc avec ${Patrick.dgts} force, Point de vie de l'orc est de ${o.ptsDeVie} `
 
             if (o.ptsDeVie <= 0) {
@@ -99,7 +99,7 @@ btnHuman.addEventListener('click', () =>
         }else if(imgList[rdm] == orcDiv && (mod != 0))
         {
             o.frappe(Patrick)
-            console.log(o.ptsDeVie);
+            console.log(`ptsvie orc ${o.ptsDeVie}`);
 
             if(Patrick.ptsDeVie <= 0)
             {
@@ -119,6 +119,7 @@ btnHuman.addEventListener('click', () =>
         }else if(imgList[rdm] == wolfDiv && (mod != 0))
         {
             w.frappe(Patrick)
+            console.log(`ptsvie wolf ${w.ptsDeVie}`);
 
             if(Patrick.ptsDeVie <= 0)
             {
@@ -138,6 +139,7 @@ btnHuman.addEventListener('click', () =>
         }else if(imgList[rdm] == dragonDiv && (mod != 0))
         {
             d.frappe(Patrick)
+            console.log(`ptsvie dragonnet ${d.ptsDeVie}`);
 
             if(Patrick.ptsDeVie <= 0)
             {
@@ -147,10 +149,10 @@ btnHuman.addEventListener('click', () =>
         }
         
     }
-    pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`
+    //pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`
     notifLoot.innerText = `Vous possedez ${Patrick.or} d'or et ${Patrick.cuir} de cuir` 
     
-    console.log(rdm);
+    
     
 })
 
@@ -287,73 +289,73 @@ console.log(prs1);
 console.log(n);
 
 
-const buttons = document.querySelectorAll("#btnAction>*");
+// const buttons = document.querySelectorAll("#btnAction>*");
 
-console.log(buttons);
+// console.log(buttons);
 
-for (let i = 0 ; i < buttons.length; i++)
-{
-    buttons[i].addEventListener("click", function()
-    {
-        const joueur = buttons[i].innerHTML;
+// for (let i = 0 ; i < buttons.length; i++)
+// {
+//     buttons[i].addEventListener("click", function()
+//     {
+//         const joueur = buttons[i].innerHTML;
 
-        const adversaire = buttons[Math.floor(Math.random() * buttons.length)].innerHTML;
+//         const adversaire = buttons[Math.floor(Math.random() * buttons.length)].innerHTML;
 
-        let resultat = "";
+//         let resultat = "";
 
-        if (joueur == "Attaque" && adversaire == "Bloquage")
-        {
-            resultat = "L'ennemi à bloqué votre attaque";
-        }
+//         if (joueur == "Attaque" && adversaire == "Bloquage")
+//         {
+//             resultat = "L'ennemi à bloqué votre attaque";
+//         }
 
-        else if (joueur == "Attaque" && adversaire == "Attaque")
-        {
-            resultat = "Vous vous attaquer mutuellement"
-        }
+//         else if (joueur == "Attaque" && adversaire == "Attaque")
+//         {
+//             resultat = "Vous vous attaquer mutuellement"
+//         }
 
-        else if (joueur == "Attaque" && adversaire == "Potion")
-        {
-            resultat = "L'ennemi à subis votre attaque & prend une potion";
-        }
+//         else if (joueur == "Attaque" && adversaire == "Potion")
+//         {
+//             resultat = "L'ennemi à subis votre attaque & prend une potion";
+//         }
 
-        else if (joueur == "Bloquage" && adversaire == "Attaque")
-        {
-            resultat = "Vous avez bloqué l'attaque ennemie";
-        }
+//         else if (joueur == "Bloquage" && adversaire == "Attaque")
+//         {
+//             resultat = "Vous avez bloqué l'attaque ennemie";
+//         }
 
-        else if (joueur == "Bloquage" && adversaire == "Bloquage")
-        {
-            resultat = "Bloquage des deux côté";
-        }
+//         else if (joueur == "Bloquage" && adversaire == "Bloquage")
+//         {
+//             resultat = "Bloquage des deux côté";
+//         }
 
-        else if (joueur == "Bloquage" && adversaire == "Potion")
-        {
-            resultat = "Bloquage à échoué & l'ennemi prend une potion";
-        }
+//         else if (joueur == "Bloquage" && adversaire == "Potion")
+//         {
+//             resultat = "Bloquage à échoué & l'ennemi prend une potion";
+//         }
 
-        else if (joueur == "Potion" && adversaire == "Attaque")
-        {
-            resultat = "Vous vous soignez & l'ennemi attaque";
-        }
+//         else if (joueur == "Potion" && adversaire == "Attaque")
+//         {
+//             resultat = "Vous vous soignez & l'ennemi attaque";
+//         }
 
-        else if (joueur == "Potion" && adversaire == "Bloquage")
-        {
-            resultat = "Vous vous soignez & le bloquage ennemi echoue";
-        }
+//         else if (joueur == "Potion" && adversaire == "Bloquage")
+//         {
+//             resultat = "Vous vous soignez & le bloquage ennemi echoue";
+//         }
 
-        else if (joueur == "Potion" && adversaire == "Potion")
-        {
-            resultat = "Vous vous soignez mutuellement";
-        }
+//         else if (joueur == "Potion" && adversaire == "Potion")
+//         {
+//             resultat = "Vous vous soignez mutuellement";
+//         }
 
-        document.querySelector(".resultat").innerHTML = 
-        `
-            Joueur : ${joueur} <br>
-            Adversaire : ${adversaire} <br>
-            ${resultat}
-        `;
-    });
-}
+//         document.querySelector(".resultat").innerHTML = 
+//         `
+//             Joueur : ${joueur} <br>
+//             Adversaire : ${adversaire} <br>
+//             ${resultat}
+//         `;
+//     });
+// }
 
 
 

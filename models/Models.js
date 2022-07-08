@@ -103,13 +103,13 @@ class Hero extends Personnage {
         this.#or = 0;
     }
 
-    get or() {
-        return this.#or;
-    }
+    // get or() {
+    //     return this.#or;
+    // }
 
-    get cuir() {
-        return this.#cuir;
-    }
+    // get cuir() {
+    //     return this.#cuir;
+    // }
 
     loot(enemi) {
         console.log(`Loot de l'ennemi`);
