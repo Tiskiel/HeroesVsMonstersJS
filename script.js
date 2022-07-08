@@ -9,7 +9,9 @@ const gameDiv = document.getElementById('gameDiv');
 const divBtn = document.getElementById('btn');
 const imgMap = document.getElementById('divMap');
 const pWelcome = document.getElementById('pWelcome')
-const grosConnard = document.getElementById('enculer');
+const humainDiv = document.getElementById('humainDiv');
+const nainDiv = document.getElementById('nainDiv');
+const dragonDiv = document.getElementById('dragonDiv')
 let img = document.createElement("img");
 
 
@@ -17,6 +19,9 @@ startbtn.addEventListener('click', () =>
 {
     fond.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
     startbtn.style.display = 'none';
+    humainDiv.style.display = 'none';
+    nainDiv.style.display = 'none';
+    dragonDiv.style.display = 'none';
 })
 
 
@@ -29,35 +34,36 @@ returnbtn.addEventListener('click', () =>
     startbtn.style.display = 'block';
     // btnHuman.style.display ='block';
     // btnNain.style.display = 'block';
-    
 })
 
+
 // btn choixHumain
-
-
-
 btnHuman.addEventListener('click', () =>
 {
 
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     pWelcome.style.display = 'none';
-    
     imgMap.classList.add('map');
+    humainDiv.style.display = 'block';
+    dragonDiv.style.display = 'block';
     // img.src = "image/humain.png";
     // imgMap.appendChild('img');
     // divBtn.classList.toggle('.align')
     // gameDiv.appendChild(img);
     //gameDiv.classList.add('.gameHuman');
-
 })
 
+
 // btn choixNain
-
-
 btnNain.addEventListener('click', () =>
 {
-
+    btnNain.style.display = 'none';
+    btnNain.style.display = 'none';
+    pWelcome.style.display = 'none';
+    imgMap.classList.add('map');
+    nainDiv.style.display = 'block';
+    dragonDiv.style.display = 'block';
 })
 
 
