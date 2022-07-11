@@ -232,6 +232,16 @@ p
 {
     display: flex;
 }
+.stat
+{
+    display: flex;
+}
+#statMonster
+{
+    background-color: #fff;
+    width: 200px;
+    margin-right: 10%;
+}
 
 
 
