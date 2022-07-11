@@ -37,6 +37,7 @@ const returnbtn = document.getElementById('returnBtn');
 
 returnbtn.addEventListener('click', () => 
 {
+    returnbtn.addEventListener('click', location.reload(), false);
     fond.style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0 0%)";
     startbtn.style.display = 'block';
     // btnHuman.style.display ='block';
