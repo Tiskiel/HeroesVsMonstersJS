@@ -42,9 +42,9 @@ class Personnage {
         this.#de4 = new De(4)
         this.#force = this.#de6.caracGenerator();
         this.#endurance = this.#de6.caracGenerator();
-        this.#ptsDeVie = this.#endurance + this.getModificateur(this.#endurance)
+        this.resetPv();
         this.#dgts = this.#de4.lancer() + this.getModificateur(this.#force)
-        console.log('Personnage créé');
+        
 
     }
     get force() {
@@ -68,7 +68,13 @@ class Personnage {
 
 
     get estVivant() {
-        return this.#ptsDeVie > 0 ? true : false;
+        return this.#ptsDeVie > 0 ;
+    }
+
+    resetPv() {
+
+        this.#ptsDeVie = this.#endurance + this.getModificateur(this.#endurance);
+
     }
 
     getModificateur(stat) {
@@ -103,24 +109,29 @@ class Hero extends Personnage {
         this.#or = 0;
     }
 
-    // get or() {
-    //     return this.#or;
-    // }
+    get or() {
+        return this.#or;
+    }
 
-    // get cuir() {
-    //     return this.#cuir;
-    // }
+    get cuir() {
+        return this.#cuir;
+    }
+
+    seReposer() {
+        this.resetPv();
+    }
 
     loot(enemi) {
         console.log(`Loot de l'ennemi`);
         if (enemi == null) return;
         if ('or' in enemi) {
             console.log(`L'enemi contient de l'or`);
+            this.#or += enemi.or;
         
         }
         if ('cuir' in enemi) {
             console.log(`L'enemi contient du cuir`);
-        
+            this.#cuir += enemi.cuir;
         }
     }
 }

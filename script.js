@@ -16,7 +16,7 @@ const wolfDiv = document.getElementById('wolfDiv');
 const orcDiv = document.getElementById('orcDiv');
 const pNotif = document.getElementById('pNotif');
 const notifLoot = document.getElementById('notifLoot')
-let imgList = [orcDiv, dragonDiv, wolfDiv];
+
 let img = document.createElement("img");
 
 
@@ -43,9 +43,39 @@ returnbtn.addEventListener('click', () =>
     // btnNain.style.display = 'block';
 })
 
-let rdm = Math.floor((Math.random()*3));
+//
 
-let rdmImg = imgList[rdm].style.display = 'block';
+function genMonster() {
+    let monster;
+
+    switch (Math.floor((Math.random()*3))) {
+        case 0:
+            monster = new Orcq();
+            console.log(`Orc créé`);
+            break;
+            case 1:
+            monster = new Dragonnet();
+            console.log(`Dragonnet créé`);
+            break;
+            
+            default: 
+            monster = new Wolf();
+            console.log(`wolf créé`);
+            break;
+    }
+
+    return monster;
+}
+
+// //let rdmMonster = imgMonster[rdm];
+//     let o = new Orcq() 
+//     let d = new Dragonnet()
+//     let w = new Orcq()
+
+//     let monsterList = [o, d, w];
+//     let rdmMonster = monsterList[Math.floor((Math.random()*monsterList.length))];
+
+//     let typeO = rdmMonster instanceof Orcq;
 
 // btn choixHumain
 btnHuman.addEventListener('click', () =>
@@ -56,101 +86,104 @@ btnHuman.addEventListener('click', () =>
     pWelcome.style.display = 'none';
     imgMap.classList.add('map');
     humainDiv.style.display = 'block';
-    //dragonDiv.style.display = 'block';
-    //wolfDiv.style.display = 'block';
-    //orcDiv.style.display = 'block';
+    
     
     let Patrick = new Humain();
-    let o = new Orcq();
-    let d = new Dragonnet();
-    let w = new Wolf();
 
-    let rdm = Math.floor((Math.random()*3));
-
-    let rdmImg = imgList[rdm].style.display = 'block';
     
-    rdmImg
-
     let compt = 0;
-    let restorePv = Patrick.ptsDeVie;
     
-    while (Patrick.ptsVie != 0 && compt != 10) {
 
+    
+    
+    
         
-        let mod = 0;
+    while (Patrick.estVivant && compt != 1) {
+        console.log(`Ceci est le compteur ${compt}`);
+        let hits = true;
+        Patrick.seReposer();
         compt++
-        mod = compt % 2
+        let rdmMonster = genMonster();
         
         console.log(`Point de vie de patrick : ${Patrick.ptsDeVie}`);
-        console.log(`ptsvie orc ${o.ptsDeVie}`);
-        console.log(`Tour ${compt}`);
-        if(imgList[rdm] == orcDiv && (mod == 0))
-        {
-            
-            Patrick.frappe(o);
-            console.log(`Point de vie de patrick : ${Patrick.ptsDeVie}`);
-            pNotif.innerText = `Patrick frappe l'orc avec ${Patrick.dgts} force, Point de vie de l'orc est de ${o.ptsDeVie} `
-
-            if (o.ptsDeVie <= 0) {
-                Patrick.loot(o);
-                Patrick.ptsDeVie = restorePv;
-                pNotif.innerText = `L'orc est mort. Bien joué jeune guerrier !`;
-            }
-        }else if(imgList[rdm] == orcDiv && (mod != 0))
-        {
-            o.frappe(Patrick)
-            console.log(`ptsvie orc ${o.ptsDeVie}`);
-
-            if(Patrick.ptsDeVie <= 0)
-            {
-                pNotif.innerText = `Patrick est mort. Try again !`
-                break
-            }
-        }else if(imgList[rdm] == wolfDiv && (mod == 0))
-        {
-            
-            Patrick.frappe(w);
-            pNotif.innerText = `Patrick frappe le loup avec ${Patrick.dgts} force, Point de vie du loup est de ${w.ptsDeVie} `
-            if (w.ptsDeVie <= 0) {
-                Patrick.loot(w)
-                Patrick.ptsDeVie = restorePv;
-                pNotif.innerText = `Le loup est mort. Bien joué jeune guerrier !`;
-            }
-        }else if(imgList[rdm] == wolfDiv && (mod != 0))
-        {
-            w.frappe(Patrick)
-            console.log(`ptsvie wolf ${w.ptsDeVie}`);
-
-            if(Patrick.ptsDeVie <= 0)
-            {
-                pNotif.innerText = `Patrick est mort. Try again !`
-                break
-            }
-        }else if(imgList[rdm] == dragonDiv && (mod == 0))
-        {
-            
-            Patrick.frappe(d);
-            pNotif.innerText = `Patrick frappe le dragonnet sous stéroïdes avec ${Patrick.dgts} force, Point de vie du dragonnet est de ${d.ptsDeVie} `
-            if (d.ptsDeVie <= 0) {
-                Patrick.loot(d)
-                Patrick.ptsDeVie = restorePv;
-                pNotif.innerText = `Le dragonnet est mort. Bien joué jeune guerrier !`;
-            }
-        }else if(imgList[rdm] == dragonDiv && (mod != 0))
-        {
-            d.frappe(Patrick)
-            console.log(`ptsvie dragonnet ${d.ptsDeVie}`);
-
-            if(Patrick.ptsDeVie <= 0)
-            {
-                pNotif.innerText = `Patrick est mort. Try again !`
-                break
-            }
-        }
         
-    }
-    //pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`
-    notifLoot.innerText = `Vous possedez ${Patrick.or} d'or et ${Patrick.cuir} de cuir` 
+
+        while (rdmMonster.estVivant && Patrick.estVivant ) {
+            
+            //let i = 0;
+            console.log('Coucou');
+            
+            
+            switch (rdmMonster.constructor) {
+                case Orcq:
+                    orcDiv.style.display = 'block';
+                    break;
+                case Dragonnet:
+                    dragonDiv.style.display = 'block';
+                    break;
+                case Wolf:
+                    wolfDiv.style.display = 'block';
+                    break;
+            
+            
+            } 
+                
+                console.log(rdmMonster.ptsDeVie);
+                console.log(Patrick.ptsDeVie);
+                
+
+                if (hits == true) {
+                    console.log('2e if');
+
+                    Patrick.frappe(rdmMonster);
+
+                    console.log(rdmMonster.ptsDeVie);
+                    console.log(Patrick.ptsDeVie);
+                    
+                    
+
+                    if (!rdmMonster.estVivant) {
+                        
+                        console.log('thirth if');
+                        
+                        Patrick.loot(rdmMonster);
+                        
+
+                        switch (rdmMonster.constructor) {
+                            case Orcq:
+                                orcDiv.style.display = 'none';
+                                break;
+                            case Dragonnet:
+                                dragonDiv.style.display = 'none';
+                                break;
+                            case Wolf:
+                                wolfDiv.style.display = 'none';
+                                break;
+                        }
+                    }   
+                    
+                
+                } else if(hits == false) {
+
+                    rdmMonster.frappe(Patrick);
+                    
+                }
+                
+                hits = !hits;
+
+                
+                console.log('pas dans le if');
+
+            
+            }        
+                
+        
+    } 
+    if (Patrick.estVivant) {
+        
+        pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`;
+        notifLoot.innerText = `Vous possedez ${Patrick.or} d'or et ${Patrick.cuir} de cuir`;
+    } else pNotif.innerText = `Game Over`;
     
     
     
@@ -261,32 +294,32 @@ btnNain.addEventListener('click', () =>
 
 
 // fonction
-function GameNain(){
+// function GameNain(){
 
-    let Nain = new Nain();
+//     let Nain = new Nain();
     
     
-    }
+//     }
     
-let prs = new Humain();
-let prs1 = new Humain();
-let n = new Nain();
-let w = new Wolf();
-let o = new Orcq();
-let d = new Dragonnet();
+// let prs = new Humain();
+// let prs1 = new Humain();
+// let n = new Nain();
+// let w = new Wolf();
+// let o = new Orcq();
+// let d = new Dragonnet();
 
 
-prs.loot(w);
+// prs.loot(w);
 
-console.log(w);
-prs.frappe(w)
-console.log(w);
+// console.log(w);
+// prs.frappe(w)
+// console.log(w);
 
-console.log(d);
-console.log(o);
-console.log(prs);
-console.log(prs1);
-console.log(n);
+// console.log(d);
+// console.log(o);
+// console.log(prs);
+// console.log(prs1);
+// console.log(n);
 
 
 // const buttons = document.querySelectorAll("#btnAction>*");
