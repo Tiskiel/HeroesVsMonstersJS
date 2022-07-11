@@ -232,23 +232,30 @@ p
 {
     display: flex;
 }
+
 .stat
 {
     display: flex;
 }
+
 #statMonster
 {
-    background-color: #fff;
-    width: 200px;
-    margin-right: 10%;
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    margin: 5px;
+    padding: 5px;
+    left: 80%;
+    top: 35%
 }
 
-
-
-
-/* .choicePlayer
-{ 
-    width: 150px;
-    margin-top: 35%;
-    margin-right: 50%;
-} */
+#statHero
+{
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    margin: 5px;
+    padding: 5px;
+    right: 80%;
+    top: 35%
+}

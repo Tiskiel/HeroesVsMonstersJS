@@ -54,19 +54,19 @@ async function fight(hero)
 {
     let compt = 0;
     while (hero.estVivant && compt != 4) {
-        console.log(`Ceci est le compteur ${compt}`);
+        console.log(`Tour ${compt}`);
         let hits = true;
         hero.seReposer();
         compt++
         let rdmMonster = genMonster();
         
-        console.log(`Point de vie de ${hero.name} : ${hero.ptsDeVie}`);
+        console.log(`Point de vie du hero : ${hero.ptsDeVie}`);
         
-        await sleep(2000)
+        await sleep(1000)
 
         while (rdmMonster.estVivant && hero.estVivant ) {
             
-            await sleep(2000);
+            await sleep(1000);
             switch (rdmMonster.constructor) {
                 case Orcq:
                     orcDiv.style.display = 'block';
@@ -80,7 +80,7 @@ async function fight(hero)
             
             
             } 
-            await sleep(2000);    
+            await sleep(1000);    
                 
 
                 if (hits == true) {
@@ -88,10 +88,12 @@ async function fight(hero)
 
                     hero.frappe(rdmMonster);
 
-                    console.log(rdmMonster.ptsDeVie);
-                    console.log(hero.ptsDeVie);
+                    console.log(`vie du hero : ${hero.ptsDeVie}`);
+                    console.log(`${hero.Dgts}`)
+                    console.log(`vie du monstre : ${rdmMonster.ptsDeVie}`);
+
                     
-                    await sleep(2000);
+                    await sleep(1000);
 
                     if (!rdmMonster.estVivant) {
                         
@@ -99,7 +101,7 @@ async function fight(hero)
                         
                         hero.loot(rdmMonster);
                         
-                        await sleep(2000);
+                        await sleep(1000);
 
                         switch (rdmMonster.constructor) {
                             
@@ -114,7 +116,7 @@ async function fight(hero)
                                 break;
 
                         }
-                        await sleep(2000);
+                        await sleep(1000);
                     }   
                     
                 
@@ -127,7 +129,7 @@ async function fight(hero)
                 hits = !hits;
 
                 
-                await sleep(2000);
+                await sleep(1000);
 
             
             }
@@ -135,7 +137,7 @@ async function fight(hero)
                 
         
     } 
-    await sleep(2000);
+    await sleep(1000);
     if (hero.estVivant) {
         
         pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`;
@@ -180,7 +182,7 @@ btnHuman.addEventListener('click', () =>
 
     
     
-    setTimeout( () => {fight(Patrick)}, 2000 )
+    setTimeout( () => {fight(Patrick)}, 1000 )
 
     
     
@@ -208,7 +210,7 @@ btnNain.addEventListener('click', () =>
     let Bob = new Nain();
 
 
-    setTimeout( () => {fight(Bob)}, 2000 )
+    setTimeout( () => {fight(Bob)}, 1000 )
     
 })
 
