@@ -81,8 +81,6 @@ async function fight(hero)
             
             } 
             await sleep(2000);    
-                console.log(rdmMonster.ptsDeVie);
-                console.log(hero.ptsDeVie);
                 
 
                 if (hits == true) {
