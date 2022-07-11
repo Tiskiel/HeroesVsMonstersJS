@@ -59,7 +59,7 @@ async function fight(hero)
         compt++
         let rdmMonster = genMonster();
         
-        console.log(`Point de vie de patrick : ${hero.ptsDeVie}`);
+        console.log(`Point de vie de ${hero.name} : ${hero.ptsDeVie}`);
         
         await sleep(2000)
 
