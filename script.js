@@ -16,6 +16,9 @@ const wolfDiv = document.getElementById('wolfDiv');
 const orcDiv = document.getElementById('orcDiv');
 const pNotif = document.getElementById('pNotif');
 const notifLoot = document.getElementById('notifLoot')
+const paraM = document.getElementById('paraM');
+const paraH = document.getElementById('paraH');
+const round = document.getElementById('round')
 
 let img = document.createElement("img");
 
@@ -32,7 +35,7 @@ startbtn.addEventListener('click', () =>
 })
 
 
-// ReturnBtn
+
 const returnbtn = document.getElementById('returnBtn');
 
 returnbtn.addEventListener('click', () => 
@@ -40,8 +43,7 @@ returnbtn.addEventListener('click', () =>
     returnbtn.addEventListener('click', location.reload(), false);
     fond.style.clipPath = "polygon(0 0, 100% 0, 100% 0%, 0 0%)";
     startbtn.style.display = 'block';
-    // btnHuman.style.display ='block';
-    // btnNain.style.display = 'block';
+    
 })
 
 function sleep(ms) {
@@ -55,18 +57,21 @@ async function fight(hero)
     let compt = 0;
     while (hero.estVivant && compt != 4) {
         console.log(`Tour ${compt}`);
+        round.innerHTML = `Round ${compt+1} `; 
         let hits = true;
         hero.seReposer();
         compt++
         let rdmMonster = genMonster();
         
-        console.log(`Point de vie du hero : ${hero.ptsDeVie}`);
+        
+
         
         await sleep(1000)
 
         while (rdmMonster.estVivant && hero.estVivant ) {
             
             await sleep(1000);
+            paraH.innerHTML = `Points de vie : ${hero.ptsDeVie} <br> Dégats d'attaque : ${hero.dgts} <br> Or : ${hero.or} <br> Cuir : ${hero.cuir}`;
             switch (rdmMonster.constructor) {
                 case Orcq:
                     orcDiv.style.display = 'block';
@@ -77,19 +82,21 @@ async function fight(hero)
                 case Wolf:
                     wolfDiv.style.display = 'block';
                     break;
-            
-            
-            } 
-            await sleep(1000);    
+                    
+                } 
+                paraM.innerHTML = `Points de vie : ${rdmMonster.ptsDeVie} <br> Dégats d'attaque : ${rdmMonster.dgts}`;
+
+                await sleep(1000);    
                 
 
                 if (hits == true) {
-                    console.log('2e if');
+                    
+                    pNotif.innerHTML = `Votre hero frappe ${rdmMonster.name} et celui-ci perd ${hero.dgts} de vie !`
 
                     hero.frappe(rdmMonster);
 
                     console.log(`vie du hero : ${hero.ptsDeVie}`);
-                    console.log(`${hero.Dgts}`)
+                    console.log(`${hero.dgts}`)
                     console.log(`vie du monstre : ${rdmMonster.ptsDeVie}`);
 
                     
@@ -98,6 +105,19 @@ async function fight(hero)
                     if (!rdmMonster.estVivant) {
                         
                         console.log('thirth if');
+
+                        switch (rdmMonster.constructor) {
+                            case Orcq:
+                                pNotif.innerHTML = `Votre hero à tué l' ${rdmMonster.name} et dépouille celui-ci de ${rdmMonster.or} d'or !`
+                                break;
+                            case Wolf:
+                                pNotif.innerHTML = `Votre hero à arraché la machoir du ${rdmMonster.name}, dépeuce celui-ci et récupère ${rdmMonster.cuir} de cuir !`
+                                break;
+                        
+                            default:
+                                pNotif.innerHTML = `Votre hero à décapité le ${rdmMonster.name} et récupère ${rdmMonster.or} d'or et fini par le dépeucer pour avoir ${rdmMonster.cuir} de cuir !`
+                                break;
+                        }
                         
                         hero.loot(rdmMonster);
                         
@@ -114,13 +134,16 @@ async function fight(hero)
                             case Wolf:
                                 wolfDiv.style.display = 'none';
                                 break;
+                            }
+                            pNotif.innerHTML = `Votre hero se boit une bonne choppe Val, max, julien et JF et récupère toute sa vie !`
 
-                        }
                         await sleep(1000);
                     }   
                     
                 
                 } else if(hits == false) {
+
+                    pNotif.innerHTML = `Votre hero à été attaqué par ${rdmMonster.name} et celui-ci perd ${rdmMonster.dgts} de vie !`
 
                     rdmMonster.frappe(hero);
                     
@@ -142,7 +165,7 @@ async function fight(hero)
         
         pNotif.innerText = `Félicitation vous avez survécu à la forêt de Sherwood`;
         notifLoot.innerText = `Vous possedez ${hero.or} d'or et ${hero.cuir} de cuir`;
-    } else pNotif.innerText = `Game Over`;    
+    } else pNotif.innerText = `T'estune fameuse clette, ta bi fais d'crevé !`;    
 }
 
 function genMonster() {
