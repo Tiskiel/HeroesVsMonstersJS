@@ -202,7 +202,7 @@ async function fight(hero) {
                             break;
                     }
 
-                    pNotif.innerHTML = `Votre hero se boit une bonne choppe et récupère toute sa vie !`
+                    pNotif.innerHTML = `Votre hero se boit une bonne choppe avec val, julien max et j-f et récupère toute sa vie !`
 
                     await sleep(1000);
                 }
