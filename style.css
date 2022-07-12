@@ -11,10 +11,19 @@
     src: local("Rock"),
     url(font/Rock.ttf);
 }
+
+@font-face
+{
+    font-family: Straw;
+    src: local("Strawberry"),
+    url(font/Strawberry.ttf);
+}
+
 body
 {
     position: relative;
 }
+
 #vidFond 
 {
     position: fixed; 
@@ -41,7 +50,6 @@ body
     overflow: hidden;
 }
 
-
 .fond
 {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -53,15 +61,7 @@ body
     text-align: center;
     color: aliceblue;
     font-size: 60px;
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue
-}
-
-#titre1
-{
-    font-family: Rock;
-    font-size: 40px;
-    color: aliceblue;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(14, 111, 53), 0 0 0.2em rgb(0, 0, 0)
+    text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 button, select
@@ -79,9 +79,10 @@ button, select
 
 p
 {
+    font-family: Straw;
     padding-top: 10px;
-    color: antiquewhite;
-    text-shadow: 1px 2px rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     font-size: 25px;
 }
 
@@ -115,8 +116,7 @@ p
     position: absolute;
     left: 43%;
     right: 43%;
-    bottom: 5%;
-    top: 90%;
+    top: 94.5%;
     cursor: pointer;
     font-family: Alice;
     font-size: 50px;
@@ -151,31 +151,30 @@ p
     top: 50%;
     left: 35%;
     right: 35%;
-    color: aliceblue;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0)
+    color: rgb(82, 125, 163);
+    text-shadow: 2px 2px 4px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0)
 }
 
 #humain
 {
     width: 150px;
     height: 200px;
-
 }
+
 #nain
 {
     width: 100px;
     height: 150px;
 }
+
 .gameHuman
 {
-    
     src:  url("image/humain.png");
     width: 20%;
-    /* height: 300px; */
     margin-left: 15%;
     cursor: crosshair;
-    /* top: 50%; */
 }
+
 .align
 {
     text-align: center;
@@ -198,22 +197,18 @@ p
 {
     padding-top: 12%;
     padding-left: 4%;
-
 }
 
 #nainDiv
 {
     padding-top: 24%;
     padding-left: 10%;
-
 }
 
 #dragonDiv
 {
     padding-left: 20%;
-    padding-top: 14%;
-    
-    
+    padding-top: 13%;
 }
 
 #wolfDiv
@@ -224,12 +219,13 @@ p
 
 #orcDiv
 {
-    padding-left: 20%;
+    padding-left: 22%;
     padding-top: 11%;
 }
 
 #divMap
 {
+    align-items: center;
     display: flex;
 }
 
@@ -259,11 +255,15 @@ p
     right: 80%;
     top: 35%
 }
+
 #round
 {
-    color: white;
+    font-family: Rock;
+    font-size: 50px;
+    font-weight: 570;
+    color: rgb(0, 0, 0);
     position: absolute;
     text-align: center;
     top: 25%;
-    right: 48%;
+    right: 46%;
 }
