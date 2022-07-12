@@ -41,19 +41,23 @@ startbtn.addEventListener('click', () => {
 
 // choix Humain
 btnHuman.addEventListener('click', () => {
+
     startGame(new Humain());
 });
+
 // choix Nain
 btnNain.addEventListener('click', () => {
+
     startGame(new Nain());
 });
 
-const startGame = function (heroType) {
+    const startGame = function (heroType) {
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     pWelcome.style.display = 'none';
     imgMap.classList.add('map');
-    humainDiv.style.display = 'block';
+    if (heroType instanceof Humain) humainDiv.style.display = 'block';
+    else nainDiv.style.display = 'block';
 
     progVieH.value = 100;
     progVieH.max = 100;
@@ -109,7 +113,7 @@ async function fight(hero) {
     let compt = 0;
 
     //verif si hero en vie et round
-    while (hero.estVivant && compt != 4) {
+    while (hero.estVivant && compt != 200) {
 
 
         round.innerHTML = `Round ${compt + 1}`;
