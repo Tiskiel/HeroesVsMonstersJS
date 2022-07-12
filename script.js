@@ -51,7 +51,7 @@ btnNain.addEventListener('click', () => {
     startGame(new Nain());
 });
 
-    const startGame = function (heroType) {
+const startGame = function (heroType) {
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     pWelcome.style.display = 'none';
@@ -61,8 +61,6 @@ btnNain.addEventListener('click', () => {
 
     progVieH.value = 100;
     progVieH.max = 100;
-    progVieM.value = 100;
-    progVieM.max = 100;
 
     let Patrick = heroType;
 
@@ -121,6 +119,8 @@ async function fight(hero) {
         hero.seReposer();
         compt++
         let rdmMonster = genMonster();
+        progVieM.value = 100;
+        progVieM.max = 100;
 
         await sleep(1000)
 
@@ -130,6 +130,7 @@ async function fight(hero) {
 
             // affichage stats hero
             paraH.innerHTML = `Points de vie : ${hero.ptsDeVie} <br> Dégats d'attaque : ${hero.dgts} <br> Or : ${hero.or} <br> Cuir : ${hero.cuir}`;
+            progVieH.style.display = 'block';
 
 
             // apparition des monstres à l'écran
@@ -150,15 +151,14 @@ async function fight(hero) {
 
             // affichage stats monstre
             paraM.innerHTML = `Points de vie : ${rdmMonster.ptsDeVie} <br> Dégats d'attaque : ${rdmMonster.dgts}`;
-            progVieH.style.display='block';
-            
+            progVieM.style.display = 'block';
+
             await sleep(1000);
-            
+
             // frappe du hero
             if (hits == true) {
-                
+
                 pNotif.innerHTML = `Votre hero frappe ${rdmMonster.name} et celui-ci perd ${hero.dgts} de vie !`
-                progVieM.style.display='block';
 
                 hero.frappe(rdmMonster);
 
@@ -226,6 +226,7 @@ async function fight(hero) {
 
             await sleep(1000);
         }
+        progVieM.style.display = 'none';
     }
 
     await sleep(1000);
@@ -239,5 +240,6 @@ async function fight(hero) {
 
     }
 
-    else pNotif.innerText = `T'estune fameuse clette, ta bi fais d'crevé !`;
+    else pNotif.innerText = `T'est une fameuse clette, ta bi fais d'crevé !`;
 }
+
