@@ -48,6 +48,11 @@ class Personnage {
 
     }
 
+    get maxPv() {
+
+        return this.#endurance + this.getModificateur(this.#endurance);
+    }
+
     get force() {
 
         return this.#force;
@@ -85,7 +90,7 @@ class Personnage {
 
     resetPv() {
 
-        this.#ptsDeVie = this.#endurance + this.getModificateur(this.#endurance);
+        this.#ptsDeVie = this.maxPv;
     }
 
     getModificateur(stat) {

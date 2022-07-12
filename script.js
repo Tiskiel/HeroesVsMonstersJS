@@ -19,7 +19,8 @@ const paraM = document.getElementById('paraM');
 const paraH = document.getElementById('paraH');
 const round = document.getElementById('round')
 const returnbtn = document.getElementById('returnBtn');
-const progVie = document.getElementById('ptsDevie')
+const progVieH = document.getElementById('progH');
+const progVieM = document.getElementById('progM');
 
 let img = document.createElement("img");
 
@@ -33,35 +34,37 @@ startbtn.addEventListener('click', () => {
     dragonDiv.style.display = 'none';
     wolfDiv.style.display = 'none';
     orcDiv.style.display = 'none';
+
+    progVieH.style.display = 'none';
+    progVieM.style.display = 'none';
 })
 
 // choix Humain
 btnHuman.addEventListener('click', () => {
+    startGame(new Humain());
+});
+// choix Nain
+btnNain.addEventListener('click', () => {
+    startGame(new Nain());
+});
 
+const startGame = function (heroType) {
     btnHuman.style.display = 'none';
     btnNain.style.display = 'none';
     pWelcome.style.display = 'none';
     imgMap.classList.add('map');
     humainDiv.style.display = 'block';
 
-    let Patrick = new Humain();
+    progVieH.value = 100;
+    progVieH.max = 100;
+    progVieM.value = 100;
+    progVieM.max = 100;
+
+    let Patrick = heroType;
 
     setTimeout(() => { fight(Patrick) }, 1000)
-})
+}
 
-// choix Nain
-btnNain.addEventListener('click', () => {
-
-    btnNain.style.display = 'none';
-    btnHuman.style.display = 'none';
-    pWelcome.style.display = 'none';
-    imgMap.classList.add('map');
-    nainDiv.style.display = 'block';
-
-    let Bob = new Nain();
-
-    setTimeout(() => { fight(Bob) }, 1000)
-})
 
 // bouton retour
 returnbtn.addEventListener('click', () => {
@@ -108,7 +111,7 @@ async function fight(hero) {
     //verif si hero en vie et round
     while (hero.estVivant && compt != 4) {
 
-        
+
         round.innerHTML = `Round ${compt + 1}`;
         let hits = true;
         hero.seReposer();
@@ -123,6 +126,7 @@ async function fight(hero) {
 
             // affichage stats hero
             paraH.innerHTML = `Points de vie : ${hero.ptsDeVie} <br> Dégats d'attaque : ${hero.dgts} <br> Or : ${hero.or} <br> Cuir : ${hero.cuir}`;
+
 
             // apparition des monstres à l'écran
             switch (rdmMonster.constructor) {
@@ -142,13 +146,15 @@ async function fight(hero) {
 
             // affichage stats monstre
             paraM.innerHTML = `Points de vie : ${rdmMonster.ptsDeVie} <br> Dégats d'attaque : ${rdmMonster.dgts}`;
-
+            progVieH.style.display='block';
+            
             await sleep(1000);
-
+            
             // frappe du hero
             if (hits == true) {
-
+                
                 pNotif.innerHTML = `Votre hero frappe ${rdmMonster.name} et celui-ci perd ${hero.dgts} de vie !`
+                progVieM.style.display='block';
 
                 hero.frappe(rdmMonster);
 
@@ -191,12 +197,12 @@ async function fight(hero) {
                             wolfDiv.style.display = 'none';
                             break;
                     }
- 
+
                     pNotif.innerHTML = `Votre hero se boit une bonne choppe et récupère toute sa vie !`
 
                     await sleep(1000);
                 }
-            } 
+            }
 
             // frappe monstre
             else if (hits == false) {
@@ -206,6 +212,12 @@ async function fight(hero) {
                 rdmMonster.frappe(hero);
             }
 
+            paraM.innerHTML = `Points de vie : ${rdmMonster.ptsDeVie} <br> Dégats d'attaque : ${rdmMonster.dgts}`;
+            paraH.innerHTML = `Points de vie : ${hero.ptsDeVie} <br> Dégats d'attaque : ${hero.dgts} <br> Or : ${hero.or} <br> Cuir : ${hero.cuir}`;
+            progVieH.value = hero.ptsDeVie;
+            progVieH.max = hero.maxPv;
+            progVieM.value = rdmMonster.ptsDeVie;
+            progVieM.max = rdmMonster.maxPv;
             hits = !hits;
 
             await sleep(1000);
@@ -221,7 +233,7 @@ async function fight(hero) {
 
         notifLoot.innerText = `Vous possedez ${hero.or} d'or(s) et ${hero.cuir} cuir(s)`;
 
-    } 
-    
+    }
+
     else pNotif.innerText = `T'estune fameuse clette, ta bi fais d'crevé !`;
 }

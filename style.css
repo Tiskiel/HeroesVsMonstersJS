@@ -267,3 +267,17 @@ p
     top: 25%;
     right: 46%;
 }
+
+#progH
+{
+    position: absolute;
+    left: 12%;
+    top: 5%;
+}
+
+#progM
+{
+    position: absolute;
+    right: 28%;
+    top: 5%;
+}
